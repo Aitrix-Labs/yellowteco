@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Stories Archive - Yellow.ai</title>
+	<atom:link href="https://yellow.ai/web-stories/feed/" rel="self" type="application/rss+xml" />
+	<link>https://yellow.ai/web-stories/</link>
+	<description></description>
+	<lastBuildDate>Thu, 22 Jun 2023 09:04:53 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	
+
+<image>
+	<url>https://yellow.ai/wp-content/uploads/2025/09/Favicon-48x48.webp</url>
+	<title>Stories Archive - Yellow.ai</title>
+	<link>https://yellow.ai/web-stories/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>Decoding the ultimate AI face-Off: ChatGPT vs. Bard vs. Bing</title>
+		<link>https://yellow.ai/web-stories/decoding-the-ultimate-ai-face-off-chatgpt-vs-bard-vs-bing/</link>
+		
+		<dc:creator><![CDATA[Amropali Shetty]]></dc:creator>
+		<pubDate>Thu, 22 Jun 2023 09:01:48 +0000</pubDate>
+				<guid isPermaLink="false">https://yellow.ai/?post_type=web-story&#038;p=102354</guid>
+
+					<description><![CDATA[		<div class="wp-block-web-stories-embed alignnone">
+			<a href="https://yellow.ai/web-stories/decoding-the-ultimate-ai-face-off-chatgpt-vs-bard-vs-bing/">
+									<img
+						src="https://yellow.ai/wp-content/uploads/2023/06/cropped-xyz.png"
+						width="360"
+						height="600"
+						alt="Decoding the ultimate AI face-Off: ChatGPT vs. Bard vs. Bing"
+													srcset="https://yellow.ai/wp-content/uploads/2023/06/cropped-xyz.png 640w, https://yellow.ai/wp-content/uploads/2023/06/cropped-xyz-225x300.png 225w, https://yellow.ai/wp-content/uploads/2023/06/cropped-xyz-150x200.png 150w"
+																			sizes="(max-width: 640px) 100vw, 640px"
+												loading="lazy"
+						decoding="async"
+					/>
+								</a>
+		</div>
+		]]></description>
+										<content:encoded><![CDATA[		<div class="wp-block-web-stories-embed alignnone">
+			<a href="https://yellow.ai/web-stories/decoding-the-ultimate-ai-face-off-chatgpt-vs-bard-vs-bing/">
+									<img
+						src="https://yellow.ai/wp-content/uploads/2023/06/cropped-xyz.png"
+						width="360"
+						height="600"
+						alt="Decoding the ultimate AI face-Off: ChatGPT vs. Bard vs. Bing"
+													srcset="https://yellow.ai/wp-content/uploads/2023/06/cropped-xyz.png 640w, https://yellow.ai/wp-content/uploads/2023/06/cropped-xyz-225x300.png 225w, https://yellow.ai/wp-content/uploads/2023/06/cropped-xyz-150x200.png 150w"
+																			sizes="(max-width: 640px) 100vw, 640px"
+												loading="lazy"
+						decoding="async"
+					/>
+								</a>
+		</div>
+		]]></content:encoded>
+					
+		
+		
+			</item>
+	</channel>
+</rss>

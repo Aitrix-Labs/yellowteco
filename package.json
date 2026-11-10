@@ -1,0 +1,16 @@
+{
+  "name": "yellowteco",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "fetch": "node scripts/fetch-assets.mjs",
+    "pages": "node scripts/transform.mjs",
+    "dev": "npm run pages && vite",
+    "build": "npm run pages && vite build && node scripts/copy-pages.mjs",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.4.11"
+  }
+}
