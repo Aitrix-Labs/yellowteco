@@ -6,7 +6,6 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
   root: path.join(__dirname, 'site'),
-  // Assets are synced into dist by scripts/copy-pages.mjs
   publicDir: false,
   base: '/yellowteco/',
   server: {
@@ -21,11 +20,5 @@ export default defineConfig({
     outDir: path.join(__dirname, 'dist'),
     emptyOutDir: true,
     assetsInlineLimit: 0,
-    rollupOptions: {
-      input: path.join(__dirname, 'site', 'index.html'),
-      output: {
-        assetFileNames: 'assets/[name][extname]',
-      },
-    },
   },
 })

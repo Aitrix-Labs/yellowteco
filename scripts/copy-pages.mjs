@@ -6,13 +6,10 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const root = path.resolve(__dirname, '..')
 const site = path.join(root, 'site')
 const dist = path.join(root, 'dist')
-const publicAssets = path.join(root, 'public', 'assets')
 
 function copyDir(from, to) {
-  if (!fs.existsSync(from)) return
   fs.mkdirSync(to, { recursive: true })
   for (const name of fs.readdirSync(from)) {
-    if (name === '_raw.html' || name === 'asset-map.json') continue
     const src = path.join(from, name)
     const dest = path.join(to, name)
     if (fs.statSync(src).isDirectory()) copyDir(src, dest)
@@ -20,12 +17,17 @@ function copyDir(from, to) {
   }
 }
 
-// Ensure unhashed asset filenames match HTML absolute /yellowteco/assets/* refs
-copyDir(path.join(site, 'assets'), path.join(dist, 'assets'))
-copyDir(publicAssets, path.join(dist, 'assets'))
-
-if (fs.existsSync(path.join(dist, 'index.html'))) {
-  fs.copyFileSync(path.join(dist, 'index.html'), path.join(dist, '404.html'))
+// Interior routes (skip homepage — Vite already built it)
+for (const name of fs.readdirSync(site)) {
+  if (name === 'index.html' || name === '404.html' || name === 'assets') continue
+  const src = path.join(site, name)
+  if (!fs.statSync(src).isDirectory()) continue
+  copyDir(src, path.join(dist, name))
 }
 
-console.log('copy-pages: synced assets + 404.html')
+// Unhashed assets for relative ./assets/* + <base> links on interior pages
+copyDir(path.join(site, 'assets'), path.join(dist, 'assets'))
+
+fs.copyFileSync(path.join(dist, 'index.html'), path.join(dist, '404.html'))
+
+console.log('Copied interior pages + assets into dist/')

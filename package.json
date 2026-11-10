@@ -7,7 +7,7 @@
     "fetch": "node scripts/fetch-assets.mjs",
     "pages": "node scripts/transform.mjs",
     "dev": "npm run pages && vite",
-    "build": "npm run pages && vite build && node scripts/copy-pages.mjs",
+    "build": "npm run pages && node scripts/clean-dist.mjs && vite build && node scripts/copy-pages.mjs",
     "preview": "vite preview"
   },
   "devDependencies": {

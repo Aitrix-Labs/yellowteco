@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:v="https://vecta.io/nano" width="41" height="40" fill="none">
+  <path d="M20.5 40c11.046 0 20-8.954 20-20s-8.954-20-20-20S.5 8.954.5 20s8.954 20 20 20z" fill="#5c42fc"></path>
+  <g clip-path="url(#A)" fill="#fff">
+    <path d="M26.724 16.053L20.5 12.94l-6.224 3.113.448.894L20.5 14.06l5.776 2.888.448-.895zM28 19v-1H13v1h1v8h-1v1h4v-7h5v7h6v-1h-1v-8h1zm-7 9v-6h-3v6h3z"></path>
+  </g>
+  <defs>
+    <clipPath id="A">
+      <path fill="#fff" transform="translate(12.5 12)" d="M0 0h16v16H0z"></path>
+    </clipPath>
+  </defs>
+</svg>
