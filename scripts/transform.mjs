@@ -97,7 +97,7 @@ function rewriteYellowUrl(url) {
     }
 
     const local = resolveLocal(cleaned)
-    if (local && !local.endsWith('.bin')) return `./assets/${local}`
+    if (local && !local.endsWith('.bin')) return `${base}/assets/${local}`
     return url
   } catch {
     return `${base}/`
@@ -136,7 +136,7 @@ function transformHtml(html, title) {
   // Root-absolute theme paths
   html = html.replace(/(["'])(\/wp-(?:content|includes)\/[^"']+)\1/g, (full, q, p) => {
     const local = resolveLocal(p)
-    return local ? `${q}./assets/${local}${q}` : full
+    return local ? `${q}${base}/assets/${local}${q}` : full
   })
 
   // Root-absolute site routes (not assets, not already prefixed)
@@ -161,22 +161,22 @@ function transformHtml(html, title) {
   ]
   for (const [re, to] of brandPairs) html = html.replace(re, to)
 
-  const logoLight = './assets/yellowteco-logo.svg'
-  const logoDark = './assets/yellowteco-logo-dark.svg'
+  const logoLight = `${base}/assets/yellowteco-logo.svg`
+  const logoDark = `${base}/assets/yellowteco-logo-dark.svg`
   html = html.replace(
-    /src="\.\/assets\/yellow-logo-25-[^"]+"(\s+alt="[^"]*")?/g,
+    /src="(?:\.\/assets|\/yellowteco\/assets)\/yellow-logo-25-[^"]+"(\s+alt="[^"]*")?/g,
     `src="${logoDark}" alt="yellowteco"`,
   )
   html = html.replace(
-    /src="\.\/assets\/yellow-logo-dark-[^"]+"(\s+alt="[^"]*")?/g,
+    /src="(?:\.\/assets|\/yellowteco\/assets)\/yellow-logo-dark-[^"]+"(\s+alt="[^"]*")?/g,
     `src="${logoLight}" alt="yellowteco"`,
   )
   html = html.replace(
-    /src="\.\/assets\/yellow-logo-[^"]+"(\s+alt="[^"]*")?/g,
+    /src="(?:\.\/assets|\/yellowteco\/assets)\/yellow-logo-[^"]+"(\s+alt="[^"]*")?/g,
     `src="${logoLight}" alt="yellowteco"`,
   )
   html = html.replace(
-    /src="\.\/assets\/footer-logo-new-[^"]+"(\s+alt="[^"]*")?/g,
+    /src="(?:\.\/assets|\/yellowteco\/assets)\/footer-logo-new-[^"]+"(\s+alt="[^"]*")?/g,
     `src="${logoLight}" alt="yellowteco"`,
   )
 
@@ -187,16 +187,14 @@ function transformHtml(html, title) {
     if (screenLocal) {
       html = html.replace(
         /<\/head>/i,
-        `<link rel="stylesheet" href="./assets/${screenLocal}" id="yellowteco-screen-css">\n</head>`,
+        `<link rel="stylesheet" href="${base}/assets/${screenLocal}" id="yellowteco-screen-css">\n</head>`,
       )
     }
   }
 
-  if (!html.includes('<base ')) {
-    html = html.replace(/<head[^>]*>/i, (h) => `${h}\n<base href="${base}/">`)
-  } else {
-    html = html.replace(/<base\s+href=["'][^"']*["']\s*\/?>/i, `<base href="${base}/">`)
-  }
+  // SPA / React Router: never use <base> (breaks client routing). Prefer absolute asset URLs.
+  html = html.replace(/<base\s+href=["'][^"']*["']\s*\/?>/gi, '')
+  html = html.replace(/(["'])\.\/assets\//g, `$1${base}/assets/`)
 
   const overrides = `
 <style id="yellowteco-overrides">
@@ -1104,13 +1102,13 @@ for (const page of pages) {
   if (String(page.out).includes('pricing')) html = compactPricing(html)
 
   // Logo swap again after chrome inject (header brings home logo paths)
-  const logoLight = './assets/yellowteco-logo.svg'
-  const logoDark = './assets/yellowteco-logo-dark.svg'
+  const logoLight = `${base}/assets/yellowteco-logo.svg`
+  const logoDark = `${base}/assets/yellowteco-logo-dark.svg`
   html = html
-    .replace(/src="\.\/assets\/yellow-logo-25-[^"]+"/g, `src="${logoDark}"`)
-    .replace(/src="\.\/assets\/yellow-logo-dark-[^"]+"/g, `src="${logoLight}"`)
-    .replace(/src="\.\/assets\/yellow-logo-[^"]+"/g, `src="${logoLight}"`)
-    .replace(/src="\.\/assets\/footer-logo-new-[^"]+"/g, `src="${logoLight}"`)
+    .replace(/src="(?:\.\/assets|\/yellowteco\/assets)\/yellow-logo-25-[^"]+"/g, `src="${logoDark}"`)
+    .replace(/src="(?:\.\/assets|\/yellowteco\/assets)\/yellow-logo-dark-[^"]+"/g, `src="${logoLight}"`)
+    .replace(/src="(?:\.\/assets|\/yellowteco\/assets)\/yellow-logo-[^"]+"/g, `src="${logoLight}"`)
+    .replace(/src="(?:\.\/assets|\/yellowteco\/assets)\/footer-logo-new-[^"]+"/g, `src="${logoLight}"`)
 
   const outPath = path.join(outDir, page.out)
   fs.mkdirSync(path.dirname(outPath), { recursive: true })

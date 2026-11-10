@@ -1,0 +1,110 @@
+/* Request-demo / HubSpot form card layout */
+.requestdemo-2025 .form-wrap,
+.investor-campaign-page .form-wrap {
+  height: auto !important;
+  min-height: 0 !important;
+  overflow: visible !important;
+  box-sizing: border-box !important;
+}
+
+.requestdemo-2025 .yellow-hubspot,
+.requestdemo-2025 .yellow-hubspot-loader,
+.requestdemo-2025 .yellow-hubspot .hbspt-form,
+.investor-campaign-page .yellow-hubspot,
+.investor-campaign-page .yellow-hubspot-loader,
+.investor-campaign-page .yellow-hubspot .hbspt-form {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+.requestdemo-2025 .yellow-hubspot .hs-form,
+.investor-campaign-page .yellow-hubspot .hs-form {
+  display: grid !important;
+  gap: 0.85rem !important;
+  width: 100% !important;
+}
+
+.requestdemo-2025 .yellow-hubspot .hs-form-field,
+.investor-campaign-page .yellow-hubspot .hs-form-field {
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+.requestdemo-2025 .yellow-hubspot label,
+.investor-campaign-page .yellow-hubspot label {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: #111 !important;
+  font-size: 0.9rem;
+}
+
+.requestdemo-2025 .yellow-hubspot .hs-input,
+.requestdemo-2025 .yellow-hubspot input.hs-input,
+.requestdemo-2025 .yellow-hubspot textarea.hs-input,
+.requestdemo-2025 .yellow-hubspot select.hs-input,
+.investor-campaign-page .yellow-hubspot .hs-input {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  background: #f4f4f4 !important;
+  border: 0 !important;
+  border-radius: 7px !important;
+  min-height: 40px !important;
+  padding: 0.55rem 1rem !important;
+  color: #111 !important;
+  font: 14px/1.4 "Founders Grotesk", sans-serif !important;
+}
+
+.requestdemo-2025 .hs-fieldtype-intl-phone {
+  display: flex !important;
+  align-items: stretch !important;
+  gap: 0.5rem !important;
+  width: 100% !important;
+}
+
+.requestdemo-2025 .hs-fieldtype-intl-phone .yt-select {
+  flex: 1 1 55% !important;
+  min-width: 0 !important;
+  max-width: 62% !important;
+}
+
+.requestdemo-2025 .hs-fieldtype-intl-phone input.hs-input[type="tel"] {
+  flex: 1 1 38% !important;
+  width: 38% !important;
+  max-width: 42% !important;
+  min-width: 7rem !important;
+}
+
+.requestdemo-2025 .yellow-hubspot .hs-button,
+.requestdemo-2025 .yellow-hubspot input[type="submit"],
+.investor-campaign-page .yellow-hubspot .hs-button,
+.investor-campaign-page .yellow-hubspot input[type="submit"] {
+  appearance: none;
+  border: 0 !important;
+  border-radius: 999px !important;
+  background: #5c42fc !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  padding: 0.85rem 1.5rem !important;
+  cursor: pointer;
+  width: auto !important;
+  min-width: 9rem;
+}
+
+.requestdemo-2025 .yellow-hubspot a,
+.investor-campaign-page .yellow-hubspot a {
+  color: #5c42fc !important;
+}
+
+.requestdemo-2025 .yellow-hubspot .hs-error-msgs label,
+.investor-campaign-page .yellow-hubspot .hs-error-msgs label {
+  color: #c0392b !important;
+}
+
+/* Hide orphan HubSpot forms that landed on body before target fix */
+body > .hbspt-form {
+  display: none !important;
+}
